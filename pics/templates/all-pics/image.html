@@ -1,0 +1,13 @@
+{%extends 'all-pics/base.html'%}
+
+{% block content %}
+{{bock.super}}
+<div class="container">
+    <div class= "row">
+            <img src="{{pics_item.image.url}}"  class="img-responsive" alt="">
+            <h2 class="text-center"> {{pics_item.name }} </h2>
+            <h2 class="text-center"> {{pics_item.description }} </h2>
+            <h2 class="text-center"> {{pics_item.url }} </h2>
+    </div>
+</div>
+{% endblock %}

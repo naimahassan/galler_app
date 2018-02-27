@@ -1,0 +1,27 @@
+{%extends 'all-pics/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if results%}
+      <h2>Found {{ results |length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 catgories for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if results %}
+    {% for result in results %}
+      <div class="col-sm-3 col-md-3">
+          <h1>{{result.name}}</h1>
+          <h1>{{result.description}}</h1>
+         <img src="{{result.image.url}}" alt="">
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
