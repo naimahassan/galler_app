@@ -22,21 +22,86 @@
       <a href="#technology">Technology</a>
     </li>
     <li>
-        <a href="#animation">Animation</a>
-      </li>
+      <a href="#animation">Animation</a>
+    </li>
 
   </ul>
 </div>
 
-<!-- <h1 class="text-center"> Welcome to my gallery_app !!</h1> -->
+<!-- 
+{% for pics_item in images %}
+        {% for category in pics_item.category.all %}
+        
+            {% if category.category_name == "people" %}
+            <div id="people" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade in active">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
+                    </div>
+                </div>
+            </div>
+            {% elif category.category_name == "buildings" %}
+            <div id="buildings" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% elif category.category_name == "plants" %}
+            <div id="plants" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% elif category.category_name == "technology" %}
+            <div id="architecture" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{pics_item.image_url.url}}" alt="{{pics_item.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% else %}
+            <div id="animation" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %} -->
+
+
+<h1 class="text-center"> Welcome to my gallery_app !!</h1>
 <div class="container">
   <div class="row">
     <!-- Looping through pics   -->
     {% for pics_item in pics %}
-    <div class="col-md-4">
-      <div class="column">
+    <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6">
+      <div class="card" style ="width: 18rem;" >
         <img src="{{pics_item.image.url}}" class="img-responsive" alt="">
         <h2 class="text-center"> {{pics_item.name }} </h2>
+        <h2><span><a href="{%url 'image' pics_item.id%}">View details</a></span></h2>
       </div>
     </div>
     {% empty %}
@@ -44,65 +109,65 @@
       <h2 class="text-center">There No pics to display</h2>
     </div>
     {% endfor %}
-
-
   </div>
-</div>
+  <div id="animation" class="row tab-pane fade">
+    {% for pics_item in pics %}
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      {% for category in pics_item.category.all %} {% if category.category_name == "animation" %} {% endif %} {% endfor %}
+      <h2>{{category | upper}}</h2>
+      {%if pic_item.image_url%}
+      <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
+      <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
 
-
-<div id="animation" class="row tab-pane fade">
-  {% for pics_item in pics %}
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    {% for category in pics_item.category.all %} {% if category.category_name == "animation" %} {% endif %} {% endfor %}
-    <h2>{{category | upper}}</h2>
-    {%if pic_item.image_url%}
-    <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
-    <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
-    <p>{{pics_item.upload_date}}</p>
-    {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %} 
+      {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %}
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 
 
+  <div id="buildings" class="row tab-pane fade">
+    {% for pics_item in pics %}
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      {% for category in pics_item.category.all %} {% if category.category_name == "buildings" %} {% endif %} {% endfor %}
+      <h2>{{category | upper}}</h2>
+      {%if pic_item.image_url%}
+      <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
+      <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
 
-<div id="buildings" class="row tab-pane fade">
-  {% for pics_item in pics %}
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    {% for category in pics_item.category.all %} {% if category.category_name == "buildings" %} {% endif %} {% endfor %}
-    <h2>{{category | upper}}</h2>
-    {%if pic_item.image_url%}
-    <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
-    <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
-    <p>{{pics_item.upload_date}}</p>
-    {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %} 
+      {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %}
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 
 
+  <div id="people" class="row tab-pane fade">
+    {% for pics_image in pics %}
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      {% for category in pics_image.category.all %}
+       {% if category.category_name == "people" %} {% endif %} {% endfor %}
+      <h2>{{category | upper}}</h2>
+      {%if pic_image.image_url%}
+    <h2> {{pics_image.name}}</h2>
 
-
-<div id="people" class="row tab-pane fade">
-  {% for pics_item in pics %}
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    {% for category in pics_item.category.all %} {% if category.category_name == "people" %} {% endif %} {% endfor %}
-    <h2>{{category | upper}}</h2>
-    {%if pic_item.image_url%}
-    <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
-    <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
-    <p>{{pics_item.upload_date}}</p>
-    {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %} 
+      <a href="">VIEW DETAILS</a>
+      <div class="panel panel-primary">
+        <div class="panel-footer">
+          <button class="btn btn-default" style="margin-left:30%">
+          </button>
+        </div>
+        <div class="panel-body">
+          <img src="{{pics_item.image.url}}" class="img-responsive" alt="">
+        </div>
+      </div>
+       {% for location in pics_image.location.id %} {{location}} {% endfor %} {% endif %}
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
-
-
-
 
 </div>
 </div>
 
+</div>
 
 
 {% endblock %}

@@ -10,15 +10,15 @@ def welcome(request):
 
 def image(request,image_id):
     try:
-        image = Image.objects.get(id = image_id)
+        image = Image.objects.get(id=image_id)
     except DoesNotExist:
         raise Http404()    
 
     return render(request,"all-pics/image.html",{"image":image})
 
-def get_image(request,image_id):
-    image = Image.get_image(image_id)
-    return render(request,'all-pics/image.html',{"pics":pics})
+# def get_image(request,image_id):
+#     image = Image.get_image(image_id)
+#     return render(request,'all-pics/image.html',{"pics":pics})
 
 def search_results(request):
     if 'pics' in request.GET and request.GET["pics"]:
