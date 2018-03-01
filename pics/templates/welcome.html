@@ -63,6 +63,43 @@
   </div>
   {% endfor %}
 </div>
+
+
+
+<div id="buildings" class="row tab-pane fade">
+  {% for pics_item in pics %}
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    {% for category in pics_item.category.all %} {% if category.category_name == "buildings" %} {% endif %} {% endfor %}
+    <h2>{{category | upper}}</h2>
+    {%if pic_item.image_url%}
+    <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
+    <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
+    <p>{{pics_item.upload_date}}</p>
+    {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %} 
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+<div id="people" class="row tab-pane fade">
+  {% for pics_item in pics %}
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    {% for category in pics_item.category.all %} {% if category.category_name == "people" %} {% endif %} {% endfor %}
+    <h2>{{category | upper}}</h2>
+    {%if pic_item.image_url%}
+    <img src="{{pics_item.image.url}}" class="img-responsive" alt=""> {%%endif}
+    <a href="/image/{{pics_item.id}}">{{pics_item.name}}</a>
+    <p>{{pics_item.upload_date}}</p>
+    {% for location in pics_item.location.all %} {{location}} {% endfor %} {% endif %} 
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
 </div>
 </div>
 
