@@ -1,1 +1,1 @@
-web: gunicorn gallery.wsgi --log life -
+web: gunicorn gallery.wsgi
