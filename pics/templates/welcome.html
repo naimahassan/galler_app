@@ -28,68 +28,6 @@
   </ul>
 </div>
 
-<!-- 
-{% for pics_item in images %}
-        {% for category in pics_item.category.all %}
-        
-            {% if category.category_name == "people" %}
-            <div id="people" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade in active">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
-                    </div>
-                </div>
-            </div>
-            {% elif category.category_name == "buildings" %}
-            <div id="buildings" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
-                        </div>
-                    </div>
-            </div>
-            {% elif category.category_name == "plants" %}
-            <div id="plants" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
-                        </div>
-                    </div>
-            </div>
-            {% elif category.category_name == "technology" %}
-            <div id="architecture" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <img src="{pics_item.image_url.url}}" alt="{{pics_item.name}}">
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
-                        </div>
-                    </div>
-            </div>
-            {% else %}
-            <div id="animation" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <img src="{{pics_item.image_url.url}}" alt="{{pics_item.name}}">
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{pics_item.id}}">VIEW DETAILS</a></button>
-                        </div>
-                    </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    {% endfor %} -->
 
 
 <h1 class="text-center"> Welcome to my gallery_app !!</h1>

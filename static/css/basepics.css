@@ -1,7 +1,9 @@
 h1
 {
-  color: pink;
+  color: blue;
   font-style: italic;
-  font-family: 'Sofia';font-size: 22px;
-
+  font-size: 22px;
+}
+body {
+  font-family:'Astloch';
 }
